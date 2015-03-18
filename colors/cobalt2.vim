@@ -254,18 +254,22 @@ if !exists("g:cobalt_bg")
 end
 
 let g:black = "000000"         " #000000
+let g:dark_grey = "737373"     " #737373
 let g:light_grey = "CCCCCC"    " #CCCCCC
 let g:white = "FFFFFF"         " #FFFFFF
 let g:dark_orange = "FF9A00"   " #FF9A00
 let g:light_orange = "FF9D00"  " #FF9D00
 let g:yellow = "FFC600"        " #FFC600
 let g:light_yellow = "F2ED7F"  " #F2ED7F
+let g:dark_green = "00944E"    " #00944E
 let g:green = "3AD900"         " #3AD900
 let g:light_green = "88FF88"   " #88FF88
 let g:purple = "967EFB"        " #967EFB
 let g:darkest_blue = "0050A4"  " #0050A4
 let g:dark_blue = "0088FF"     " #0088FF
+let g:new_blue = "0437FF"      " #0437FF
 let g:blue = "00AAFF"          " #00AAFF
+let g:line_blue = "6BBCEA"     " #6BBCEA
 let g:light_blue = "80FCFF"    " #80FCFF
 let g:dark_red = "902020"      " #902020
 let g:red = "FF0000"           " #FF0000
@@ -303,10 +307,10 @@ call s:X("Visual","",g:darkest_blue,"","",s:termBlack)
 
 call s:X("Cursor",g:cobalt_bg,g:yellow,"","","")
 call s:X("CursorColumn","",g:yellow,"","",s:termBlack)
-call s:X("CursorLine","",g:yellow,"","",s:termBlack)
+call s:X("CursorLine","","","bold","","")
 call s:X("CursorLineNr",g:light_blue,"","none","White","")
 
-call s:X("LineNr","605958",g:cobalt_bg,"none",s:termBlack,"")
+call s:X("LineNr",g:line_blue,g:darkest_blue,"none",s:termBlack,"")
 call s:X("Comment",g:dark_blue,"","italic","Grey","")
 call s:X("Todo",g:dark_blue,"","bold","Grey", "")
 
@@ -332,7 +336,7 @@ call s:X("StringDelimiter",g:green,"","","Green","")
 call s:X("Identifier",g:dark_orange,"","",g:dark_orange,"")
 hi! link Structure Comment
 " call s:X("Structure","#8fbfdc","","","LightCyan","")
-call s:X("Function",g:yellow,"","","","")
+call s:X("Function",g:blue,"","","","")
 call s:X("Statement",g:dark_orange,"","","","")
 hi! link PreProc Identifier
 
@@ -605,6 +609,19 @@ hi! link luaOperator Conditional
 hi! link cFormat Identifier
 hi! link cOperator Constant
 
+" added by nks5295
+call s:X("Comment",g:dark_grey,"","","","")
+call s:X("Define",g:new_blue,"","","","")
+call s:X("Include",g:darkest_blue,"","","","")
+call s:X("PreProc",g:purple,"","","","")
+call s:X("Type",g:blue,"","","","")
+call s:X("Conditional",g:light_blue,"","bold","","")
+call s:X("Function",g:light_green,"","","","")
+call s:X("Statement",g:light_blue,"","bold","","")
+call s:X("Identifier",g:purple,"","","","")
+call s:X("Todo",g:black,g:light_green,"","","")
+call s:X("Special",g:dark_green,"","bold","","")
+
 " Objective-C/Cocoa
 
 hi! link objcClass Type
@@ -663,10 +680,10 @@ if !s:low_color
   hi FoldColumn ctermbg=234
   hi SignColumn ctermbg=236
   hi CursorColumn ctermbg=234
-  hi CursorLine ctermbg=235
+  hi CursorLine ctermbg=NONE
   hi SpecialKey ctermbg=234
   exec "hi NonText ctermbg=".g:cobalt_bg_256
-  exec "hi LineNr ctermbg=".g:cobalt_bg_256
+exec "hi LineNr ctermbg=".g:cobalt_bg_256
   hi DiffText ctermfg=81
   exec "hi Normal ctermbg=".g:cobalt_bg_256
   hi DbgBreakPt ctermbg=53
