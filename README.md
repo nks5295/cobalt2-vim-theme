@@ -1,6 +1,9 @@
 Cobalt2 Vim
 ===========
 
+Cobalt 2 Vim Theme with C Syntax Support!
+-------
+
 Install
 -------
 
@@ -53,7 +56,6 @@ Currently not scheduled
 - Python
 - PHP
 - Objective C
-- C
 - Erlang
 - Lua
 - ...
